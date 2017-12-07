@@ -2,7 +2,7 @@
 
 def call(String name) {
   if (!name) {
-    error 'name is required'
+    currentBuild.result = 'FAILURE'    
   }
 
   echo "Hello, ${name}."
