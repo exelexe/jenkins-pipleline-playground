@@ -7,7 +7,7 @@ def call() {
     }
 
     stage('pwd') {
-      pwd
+      pwd()
     }
   }
 }
