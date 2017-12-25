@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-import com.github.exelexe.json.*
+import com.github.exelexe.jenkins.*
 
 def getGitUrlFormat() {
   config = new SampleConfig()
