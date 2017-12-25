@@ -1,9 +1,9 @@
 #!/usr/bin/env groovy
 
-import com.github.exelexe.jenkins.*
+import com.github.exelexe.jenkins.SampleConfig
 
 def getGitUrlFormat() {
-  config = new SampleConfig()
-  return config.getGitUrlFormat()
+  def res = new SampleConfig()
+  return res.getGitUrlFormat()
 }
 

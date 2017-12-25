@@ -1,17 +1,17 @@
 #!/usr/bin/env groovy
 package com.github.exelexe.jenkins
 
-import groovy.json.JsonSlurper
-
 class SampleConfig implements Serializable {
+
+  def res
 
   public SampleConfig() {
     def jsonStr = libraryResource 'com/github/exelexe/jenkins/sample.json'
-    def config = new JsonSlurper().parse(jsonStr)
+    this.res = new groovy.json.JsonSlurperClassic().parseText(jsonStr)
   }
 
   def getGitUrlFormat() {
-    return config["git"]["url-format"]
+    return this.res["git"]["url-format"]
   }
 }
 
