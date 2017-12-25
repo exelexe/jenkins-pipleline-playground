@@ -5,7 +5,7 @@ class SampleConfig implements Serializable {
 
   def res
 
-  public SampleConfig(jsonStr) {
+  public SampleConfig() {
     def jsonStr = libraryResource 'com/github/exelexe/jenkins/sample.json'
     this.res = new groovy.json.JsonSlurperClassic().parseText(jsonStr)
   }
