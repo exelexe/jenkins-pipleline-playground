@@ -2,8 +2,6 @@
 import com.github.exelexe.jenkins.SampleConfig
 
 def getGitUrlFormat() {
-  def jsonStr = libraryResource 'com/github/exelexe/jenkins/sample.json'
-  def con = new SampleConfig(jsonStr)
+  def con = new SampleConfig()
   return con.getGitUrlFormat()
 }
-
