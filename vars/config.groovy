@@ -1,10 +1,9 @@
 #!/usr/bin/env groovy
 
-import com.github.exelexe.jenkins
+def jsonStr = libraryResource 'com/github/exelexe/jenkins/sample.json'
+def config = new SampleConfig()onSlurper().parse(jsonStr)
 
-def config = new SampleConfig()
-
-def call() {
-  echo getGitUrlFormat()
+def getGitUrlFormat() {
+  return config["git"]["fablic-url-format"]
 }
 
