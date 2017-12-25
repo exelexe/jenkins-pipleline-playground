@@ -1,9 +1,8 @@
 #!/usr/bin/env groovy
 import com.github.exelexe.jenkins.SampleConfig
 
-def jsonStr = libraryResource 'com/github/exelexe/jenkins/sample.json'
-final props = new SampleConfig(jsonStr)
-
 def getGitUrlFormat() {
+  def jsonStr = libraryResource 'com/github/exelexe/jenkins/sample.json'
+  final props = new SampleConfig(jsonStr)
   return props.getGitUrlFormat()
 }
