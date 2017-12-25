@@ -11,7 +11,7 @@ class SampleConfig implements Serializable {
   }
 
   def getGitUrlFormat() {
-    return config["git"]["fablic-url-format"]
+    return config["git"]["url-format"]
   }
 }
 
