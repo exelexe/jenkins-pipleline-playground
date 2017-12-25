@@ -1,0 +1,31 @@
+{
+  "aws": {
+    "service1": {
+      "region": "ap-northeast-1",
+      "vpc": {
+        "id": "vpc-xxxxxx",
+        "subnet": {
+          "api": {
+            "zone-a": "subnet-11111111",
+            "zone-c": "subnet-22222222"
+          },
+          "web": {
+            "zone-a": "subnet-bbbbbbbb",
+            "zone-c": "subnet-aaaaaaaa"
+          }
+        },
+        "security-group": {
+          "api": "sg-11111111",
+          "web": "sg-22222222,sg-33333333"
+        }
+      },
+      "route53": {
+        "hosted-zone-id": "ADCDEFG"
+      }
+    }
+  },
+  "git": {
+    "url-format": "git@github.com:exelexe/%s.git"
+  }
+}
+
