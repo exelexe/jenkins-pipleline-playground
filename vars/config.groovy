@@ -7,7 +7,7 @@ def getResource() {
 }
 
 def getGitUrlFormat() {
-  config = getResource()
-  return config["git"]["url-format"]
+  def res = getResource()
+  return res["git"]["url-format"]
 }
 
