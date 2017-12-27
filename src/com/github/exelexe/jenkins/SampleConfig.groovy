@@ -1,13 +1,15 @@
 #!/usr/bin/env groovy
 package com.github.exelexe.jenkins
 
+import groovy.text.SimpleTemplateEngine
+
 class SampleConfig implements Serializable {
 
   def res
 
   public SampleConfig() {
     this.res = new groovy.json.JsonSlurperClassic().parseText(
-                     this.class.getResource( 'com/github/exelexe/jenkins/sample.json').getFile()
+                     this.class.getResource( 'com/github/exelexe/jenkins/sample.json')
                    )
   }
 
