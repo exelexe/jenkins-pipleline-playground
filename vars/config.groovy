@@ -1,12 +1,8 @@
 #!/usr/bin/env groovy
-
-def getResource() {
-  def jsonStr = libraryResource 'com/github/exelexe/jenkins/sample.json'
-  return new groovy.json.JsonSlurperClassic().parseText(jsonStr)
-}
+import com.github.exelexe.jenkins.SampleConfig
 
 def getGitUrlFormat() {
-  def res = getResource()
-  return res["git"]["url-format"]
+  conf = new SampleConfig(this)
+  return conf.getGitUrlFormat()
 }
 
