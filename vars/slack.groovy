@@ -63,7 +63,8 @@ private def getPayload(String message, String status = null) {
       "attachments": [
         {
           "color": "${color}",
-          "title": "${env.JOB_NAME} #${env.BUILD_NUMBER} By ${buildUser}",
+          "author_name": "${buildUser}",
+          "title": "${env.JOB_NAME} #${env.BUILD_NUMBER}",
           "title_link": "${titleLink}",
           "text": "${message}",
           "footer": "Jenkins Bot",
