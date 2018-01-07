@@ -1,19 +1,20 @@
 #!/usr/bin/env groovy
 
-environment {
-  SLACK_STATUS_SUCCESS = 'success'
-}
+import groovy.transform.Field
+
+@Field final String STATUS_SUCCESS = 'SUCCESS'
+@Field final String STATUS_ERROR = 'ERROR'
 
 def info(String message) {
   notify(getPayload(message))
 }
 
 def error(String message) {
-  notify(getPayload(message, 'error'))
+  notify(getPayload(message, STATUS_ERROR))
 }
 
 def success(String message) {
-  notify(getPayload(message, env.SLACK_STATUS_SUCCESS))
+  notify(getPayload(message, STATUS_SUCCESS))
 }
 
 private def notify(String payload) {
@@ -33,10 +34,10 @@ private def getColor(String status) {
   def color = ''
 
   switch (status) {
-    case 'success':
+    case STATUS_SUCCESS:
       color = 'good'
       break
-    case 'error':
+    case STATUS_ERROR:
       color = 'danger'
       break
   }
@@ -45,7 +46,7 @@ private def getColor(String status) {
 }
 
 private def getTitleLink(String status) {
-  return (status == 'error') 
+  return (status == STATUS_ERROR) 
     ? "${env.HUDSON_URL}job/${env.JOB_NAME}/${env.BUILD_NUMBER}/console" 
     : "${env.HUDSON_URL}blue/organizations/jenkins/${env.JOB_NAME}/detail/${env.JOB_NAME}/${env.BUILD_NUMBER}/pipeline"
 }
@@ -81,4 +82,3 @@ private def getPayload(String message, String status = null) {
   echo "Using Slack payload:\n${payload}"
   return payload
 }
-
