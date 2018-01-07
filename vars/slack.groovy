@@ -1,5 +1,9 @@
 #!/usr/bin/env groovy
 
+environment {
+  SLACK_STATUS_SUCCESS = 'success'
+}
+
 def info(String message) {
   notify(getPayload(message))
 }
@@ -9,7 +13,7 @@ def error(String message) {
 }
 
 def success(String message) {
-  notify(getPayload(message, 'success'))
+  notify(getPayload(message, env.SLACK_STATUS_SUCCESS))
 }
 
 private def notify(String payload) {
